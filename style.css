@@ -1,0 +1,73 @@
+
+body {
+	font-family: "Courier New",sans-serif ;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #111 ;
+	color: #ccc ;
+	font-size: 20px;
+}
+
+main {
+	max-width: 800px ;
+	margin: auto ;
+}
+
+img {
+	max-width: 100% ;
+}
+
+header h1 {
+	text-align: center ;
+	color: #bfff80;
+	font-size: 45px;
+}
+
+h1 { 
+	text-align: center;
+	font-size: 40px;
+}
+
+h2 {
+	text-align: center;
+	font-size: 35px;
+}
+
+p { 
+	font-size: 20px;
+}
+footer {
+	text-align: center ;
+	clear: both ;
+}
+
+a {
+	color: rgb(70, 163, 86);
+	font-size: 20px;
+}
+
+li {
+	padding-bottom: 5px;
+}
+
+/* For TAGLIST.HTML */
+.taglist {
+	text-align: center ;
+	clear: both ;
+}
+
+/* For NEXTPREV.HTML */
+#nextprev {
+	/* The container for both the previous and next articles. */
+}
+#prevart {
+	float: left ;
+	text-align: left ;
+}
+#nextart {
+	float: right ;
+	text-align: right ;
+}
+#nextart,#prevart {
+	max-width: 33% ;
+}

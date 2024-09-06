@@ -1,0 +1,52 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+	<title>Adityaa&#39;s Website</title>
+	<link>https://AdityaaTikoo.github.io/tags/</link>
+	<description>Recent content in Tags on Adityaa&#39;s Website</description>
+	<generator>Hugo -- gohugo.io</generator>
+	<language>en-us</language>
+    
+        <atom:link href="https://AdityaaTikoo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	
+	
+	<item>
+		<title>Hello World</title>
+		<link>https://AdityaaTikoo.github.io/articles/hello-world/</link>
+		<pubDate>Sat, 31 Aug 2024 11:47:46 +0530</pubDate>
+		
+		<guid>https://AdityaaTikoo.github.io/articles/hello-world/</guid>
+		<description>&lt;h1 id=&#34;bonsoir-elliott&#34;&gt;Bonsoir, Elliott&lt;/h1&gt;
+&lt;p&gt;This is a test page to see if my website is properly working or not.&lt;/p&gt;
+&lt;p&gt;Looks like it works 😎&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://AdityaaTikoo.github.io/hello-world.png&#34; alt=&#34;Hello World&#34;&gt;&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
+		<title>Hello World</title>
+		<link>https://AdityaaTikoo.github.io/projects/hello-world/</link>
+		<pubDate>Sat, 31 Aug 2024 11:47:46 +0530</pubDate>
+		
+		<guid>https://AdityaaTikoo.github.io/projects/hello-world/</guid>
+		<description>&lt;h1 id=&#34;bonsoir-elliott&#34;&gt;Bonsoir, Elliott&lt;/h1&gt;
+&lt;p&gt;This is a test page to see if my website is properly working or not.&lt;/p&gt;
+&lt;p&gt;Looks like it works 😎&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://AdityaaTikoo.github.io/hello-world.png&#34; alt=&#34;Hello World&#34;&gt;&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
+		<title>Hello World</title>
+		<link>https://AdityaaTikoo.github.io/updates/hello-world/</link>
+		<pubDate>Sat, 31 Aug 2024 11:47:46 +0530</pubDate>
+		
+		<guid>https://AdityaaTikoo.github.io/updates/hello-world/</guid>
+		<description>&lt;h1 id=&#34;bonsoir-elliott&#34;&gt;Bonsoir, Elliott&lt;/h1&gt;
+&lt;p&gt;This is a test page to see if my website is properly working or not.&lt;/p&gt;
+&lt;p&gt;Looks like it works 😎&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://AdityaaTikoo.github.io/hello-world.png&#34; alt=&#34;Hello World&#34;&gt;&lt;/p&gt;
+</description>
+	</item>
+	
+	</channel>
+</rss>
