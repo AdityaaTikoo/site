@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Backup Server | Adityaa&#39;s Website</title>
+	<link rel="canonical" href="https://AdityaaTikoo.github.io/">
+	<link rel='alternate' type='application/rss+xml' title="Adityaa&#39;s Website RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="What is a Backup Server ? A backup server is a type of server dedicated to storing backup copies of data and system configurations from other servers or computers. Its primary purpose is to ensure data integrity and availability in case of data loss, corruption, or system failure.
+Do I really need a backup server ? Yes ofc you need a backup server, what would happen if you had only one copy of an important file that got corrupted and you cannot retrieve it anymore ?">
+	<meta name="keywords" content="Linux, Projects">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Backup Server">Backup Server</h1></header>
+<article>
+
+<h1 id="what-is-a-backup-server-">What is a Backup Server ?</h1>
+<p>A backup server is a type of server dedicated to storing backup copies of data and system configurations from other servers or computers. Its primary purpose is to ensure data integrity and availability in case of data loss, corruption, or system failure.</p>
+<hr>
+<h2 id="do-i-really-need-a-backup-server-">Do I really need a backup server ?</h2>
+<p>Yes ofc you need a backup server, what would happen if you had only one copy of an important file that got corrupted and you cannot retrieve it anymore ?</p>
+<p>Even if your not in IT, having backups of data is really important.</p>
+<hr>
+<h2 id="requirements--description">Requirements &amp; Description</h2>
+<ol>
+<li>A server (I reccomend using oracle&rsquo;s free tier servers )</li>
+<li>Rsync (A program that automatically synces files and folders across two different computers)</li>
+</ol>
+<hr>
+<h1 id="how-to">How to</h1>
+<ul>
+<li>First step is to create a server, for this instance I&rsquo;m using oracle&rsquo;s free tier servers.</li>
+</ul>
+<p><img src="/backup_oracle_server.png" alt="Oracle Server details"></p>
+<ul>
+<li>Second step is to ssh into the server using the ssh keys.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Change file permissions (Required by ssh)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ssh-key-2024-09-11.key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Logging into the server using ssh keys</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssh -i ssh-key-2024-09-11.key username@ip_address
+</span></span></code></pre></div><ul>
+<li>Third step is to update the system and install the software required</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Updating the system</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo apt update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Upgrading the system</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Installing Rsync program</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo apt install rsync -y
+</span></span></code></pre></div><ul>
+<li>Fourth step is to go to your home computer and create a <strong>backup</strong> folder where you will keep all your important files that are to be uploaded to the backup server.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Creating the backup folder</span>
+</span></span><span style="display:flex;"><span>mkdir backup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Adding dummy files</span>
+</span></span><span style="display:flex;"><span>touch first_folder second_folder
+</span></span></code></pre></div><ul>
+<li>Fifth step is to upload them using rsync, you can either manually upload them or you can create a cronjob that updates your files everyday.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Manually using rsync</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rsync -rvuP -e <span style="color:#e6db74">&#34;ssh -i /path/to/ssh.key&#34;</span> /home/adityaa/backup ubuntu@ip-address:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># automatically uploading files using cronjob</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">9</span> * * * rsync -rvuP -e <span style="color:#e6db74">&#34;ssh -i /path/to/ssh.key&#34;</span> /home/adityaa/backup ubuntu@ip-address:
+</span></span></code></pre></div><hr>
+<h3 id="credits">Credits</h3>
+<p>I got this idea from <a href="https://cybercademy.org/">cyberacademy</a> and by watching <a href="https://www.youtube.com/watch?v=iTnWIKHtOnA">luke smith&rsquo;s video on rsync</a>.</p>
+<hr>
+
+
+<div id="nextprev">
+<a href="/updates/mycloud/"><div id="prevart">Previous:<br>My Cloud</div></a>
+</div>
+<div style="clear:both" class=taglist>Related<br><a id="tag_linux" href="https://AdityaaTikoo.github.io/tags/linux">Linux</a> &middot; <a id="tag_projects" href="https://AdityaaTikoo.github.io/tags/projects">Projects</a></div>
+</article>
+</main>
+
+<footer>
+	<a href="https://AdityaaTikoo.github.io/">https://AdityaaTikoo.github.io/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>
